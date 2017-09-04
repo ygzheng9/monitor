@@ -7,19 +7,20 @@
 
 MyService::MyService(int argc, char *argv[])
     : QtService<QCoreApplication>(argc, argv, "Dajun") {
-  setServiceDescription("This is my Windows Service");
-  setServiceFlags(QtServiceBase::CanBeSuspended);
+  setServiceDescription("Dajun Service");
+  setServiceFlags(QtServiceBase::CannotBeStopped;
+  setStartupType(QtServiceController::AutoStartup);
 }
 
 void MyService::start() {
   // Only for "-e" option, as message handler has not been installed
-  qDebug() << "Get into start().......";
+  //  qDebug() << "Get into start().......";
 
-  installMessageHandler();
+  //  installMessageHandler();
 
   tickTask.reset(new TickTask);
 
-  qInfo() << "Start MyWindowsService...";
+  //  qInfo() << "Start MyWindowsService...";
 }
 
 void MyService::stop() { qInfo() << "Stop MyWindowsService..."; }

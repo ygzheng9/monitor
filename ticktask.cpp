@@ -16,12 +16,12 @@ TickTask::TickTask() {
 
   // 启动定时器
   timer->start();
-  qInfo() << "start timer.....";
+  //  qInfo() << "start timer.....";
 }
 
 void TickTask::onTimerOut() {
-  QString cpu = QTime::currentTime().toString("YYYY-MM-DD HH:mm:ss");
-  qInfo() << "tick..." << cpu;
+  //  QString cpu = QTime::currentTime().toString("YYYY-MM-DD HH:mm:ss");
+  //  qInfo() << "tick..." << cpu;
 
   // 获取 当前用户，mac，cpu 及 memory 使用情况
   double cpuLoadAverage = SysInfo::instance().cpuLoadAverage();
@@ -60,8 +60,8 @@ void TickTask::onTimerOut() {
   doc.setObject(json);
   QByteArray request_body = doc.toJson();
 
-  qDebug() << "data: "
-           << QString::fromUtf8(request_body.data(), request_body.size());
+  //  qDebug() << "data: "
+  //           << QString::fromUtf8(request_body.data(), request_body.size());
 
   // 发起 post 请求
   QNetworkRequest request(serviceURL);
